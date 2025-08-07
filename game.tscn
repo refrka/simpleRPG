@@ -1,0 +1,357 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgx12575xqjpo"]
+
+[ext_resource type="Script" uid="uid://bitaarf2k7p48" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Theme" uid="uid://bxbmaomxanbng" path="res://resources/main_theme.tres" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://b0q4wwqiw5g8u" path="res://player_info.gd" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://d1upugtlbnuki" path="res://player/player_inventory.gd" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://cqj3015skunl5" path="res://player/player_equipment.gd" id="5_7jktm"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_80nbo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_e2o6t")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23, 0.23, 0.23, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="playerInfo" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_constants/separation = 2
+script = ExtResource("3_feb5d")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MarginContainer"]
+layout_mode = 2
+
+[node name="playerName" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Lvl"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Lvl/HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Lvl:"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerLvl" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Lvl/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerXP" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Lvl/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HP" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/HP"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/HP/HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "HP:"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerHP" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/HP/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="slash" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/HP/HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "/"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerHPmax" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/HP/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="MP" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MP"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MP/HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "MP:"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerMP" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MP/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="slash" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MP/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "/"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerMPmax" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MP/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory"]
+layout_mode = 2
+
+[node name="playerInventory" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+script = ExtResource("4_fc0e3")
+
+[node name="playerPotions" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="potions" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerPotions"]
+layout_mode = 2
+bbcode_enabled = true
+text = "> Potions <"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="itemsPotions" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerPotions"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="playerBooks" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="books" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerBooks"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 0
+bbcode_enabled = true
+text = "> Books <"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="itemsBooks" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerBooks"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="playerEquipment" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+script = ExtResource("5_7jktm")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment"]
+layout_mode = 2
+bbcode_enabled = true
+text = "> Weapon <"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="weapon_name" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment"]
+layout_mode = 2
+
+[node name="weaponName" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment/weapon_name"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="weaponType" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment/weapon_name"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="weapon_atk" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment/weapon_atk"]
+layout_mode = 2
+bbcode_enabled = true
+text = "atk:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="weaponAtk" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment/weapon_atk"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="weapon_def" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment/weapon_def"]
+layout_mode = 2
+bbcode_enabled = true
+text = "def:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="weaponDef" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment/weapon_def"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="navigation" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.08
+theme_override_constants/separation = 5
+
+[node name="navHome" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/VBoxContainer/navigation"]
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "<home>"
+fit_content = true
+autowrap_mode = 0
+
+[node name="navExplore" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/VBoxContainer/navigation"]
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "<explore>"
+fit_content = true
+autowrap_mode = 0
+
+[node name="navCraft" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/VBoxContainer/navigation"]
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "<craft>"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.08

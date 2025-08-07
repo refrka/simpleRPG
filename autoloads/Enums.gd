@@ -18,6 +18,13 @@ enum ItemType {
     POTION,
 }
 
+enum Scenes {
+    NONE,
+    HOME,
+    EXPLORE,
+    CRAFT,
+}
+
 enum Weapons {
     BOW,
     SPEAR,

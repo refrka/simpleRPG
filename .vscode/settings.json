@@ -1,0 +1,9 @@
+{
+    "godotTools.editorPath.godot4": "c:\\Users\\scije\\Desktop\\Godot_v4.4.1-stable_win64.exe",
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "files.exclude": {
+        "**/*.gd.uid": true
+    }
+}

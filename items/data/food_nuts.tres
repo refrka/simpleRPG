@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://bvckovqwx2nac"]
+
+[ext_resource type="Script" uid="uid://c8r5m0ftyky0s" path="res://items/item_data.gd" id="1_br5bt"]
+
+[resource]
+script = ExtResource("1_br5bt")
+item_name = "nuts"
+item_id = 5
+type = 3
+target_stat = &"hp_current"
+value_change = 5
+metadata/_custom_type_script = "uid://c8r5m0ftyky0s"

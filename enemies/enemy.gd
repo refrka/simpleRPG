@@ -10,4 +10,4 @@ var data_ref:= {
 
 func _init(_id: Enums.Enemies) -> void:
     id = _id
-    data = data_ref[id]
+    data = load(data_ref[id])

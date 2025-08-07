@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3mw6nwpgk3dy"]
+
+[ext_resource type="Script" uid="uid://gsjuxojyqstw" path="res://scenes/explore.gd" id="1_x7d0j"]
+[ext_resource type="PackedScene" uid="uid://4ppn1sy3ajhi" path="res://scenes/explore/menu.tscn" id="2_sv6t2"]
+
+[node name="explore" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_x7d0j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="exploreContent" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" parent="VBoxContainer/exploreContent" instance=ExtResource("2_sv6t2")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="navReturn" type="RichTextLabel" parent="VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "<return home>"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1

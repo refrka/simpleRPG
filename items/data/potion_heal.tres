@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_tnpcq")
 item_name = "heal potion"
-item_id = 2
+item_id = 3
 type = 2
 target_stat = &""
-value_change = 0.0
+value_change = 0
 metadata/_custom_type_script = "uid://c8r5m0ftyky0s"

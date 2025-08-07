@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_dh4yy")
 item_name = "buff (atk)"
-item_id = 1
+item_id = 2
 type = 1
 target_stat = &""
-value_change = 0.0
+value_change = 0
 metadata/_custom_type_script = "uid://c8r5m0ftyky0s"

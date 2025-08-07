@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgx12575xqjpo"]
+[gd_scene load_steps=9 format=3 uid="uid://cgx12575xqjpo"]
 
 [ext_resource type="Script" uid="uid://bitaarf2k7p48" path="res://game.gd" id="1_80nbo"]
 [ext_resource type="Theme" uid="uid://bxbmaomxanbng" path="res://resources/main_theme.tres" id="2_e2o6t"]
@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://cqj3015skunl5" path="res://player/player_equipment.gd" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://c1dig33ju03xq" path="res://player_nav.gd" id="6_eow3j"]
 [ext_resource type="Script" uid="uid://cite0s4da050o" path="res://navigation.gd" id="7_j5wjh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 
 [node name="Game" type="Node"]
 script = ExtResource("1_80nbo")
@@ -52,14 +59,14 @@ size_flags_stretch_ratio = 0.3
 theme_override_constants/separation = 2
 script = ExtResource("3_feb5d")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
+[node name="Name" type="MarginContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo"]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Name"]
 layout_mode = 2
 
-[node name="playerName" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/MarginContainer/HBoxContainer"]
+[node name="playerName" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Name/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -195,8 +202,31 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 5
+theme_override_constants/separation = 2
 script = ExtResource("4_fc0e3")
+
+[node name="food" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
+layout_mode = 2
+bbcode_enabled = true
+text = "> Food <"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="playerFood" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="potions" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
+layout_mode = 2
+bbcode_enabled = true
+text = "> Potions <"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="playerPotions" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
 unique_name_in_owner = true
@@ -205,27 +235,7 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 1
 alignment = 1
 
-[node name="potions" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerPotions"]
-layout_mode = 2
-bbcode_enabled = true
-text = "> Potions <"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="itemsPotions" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerPotions"]
-unique_name_in_owner = true
-layout_mode = 2
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-
-[node name="playerBooks" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 1
-
-[node name="books" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerBooks"]
+[node name="books" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 0
 bbcode_enabled = true
@@ -234,19 +244,16 @@ fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="itemsBooks" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory/playerBooks"]
+[node name="playerBooks" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerInventory"]
 unique_name_in_owner = true
 layout_mode = 2
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-vertical_alignment = 1
+theme_override_constants/separation = 1
 
 [node name="playerEquipment" type="VBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 1
+theme_override_constants/separation = 2
 script = ExtResource("5_7jktm")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerInfo/Inventory/HBoxContainer/playerEquipment"]
@@ -320,13 +327,13 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 script = ExtResource("6_eow3j")
 
-[node name="links" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav"]
+[node name="navigation" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.08
 theme_override_constants/separation = 5
 script = ExtResource("7_j5wjh")
 
-[node name="navHome" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/links"]
+[node name="navHome" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/navigation"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -335,7 +342,7 @@ text = "<home>"
 fit_content = true
 autowrap_mode = 0
 
-[node name="navExplore" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/links"]
+[node name="navExplore" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/navigation"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -344,7 +351,7 @@ text = "<explore>"
 fit_content = true
 autowrap_mode = 0
 
-[node name="navCraft" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/links"]
+[node name="navCraft" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/navigation"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -353,7 +360,40 @@ text = "<craft>"
 fit_content = true
 autowrap_mode = 0
 
-[node name="navContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav"]
+[node name="navCombat" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "<combat>"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/navigation"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "current location:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="navCurrent" type="RichTextLabel" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "<none>"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
+
+[node name="navContainer" type="HBoxContainer" parent="Control/ColorRect/MarginContainer/HBoxContainer/playerNav/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

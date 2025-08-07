@@ -7,4 +7,5 @@ script = ExtResource("1_w773y")
 enemy_name = ""
 enemy_id = 0
 hp = 0
+loot = Array[int]([4])
 metadata/_custom_type_script = "uid://cjdaoiqrkpasn"

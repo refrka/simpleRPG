@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://nchtb36yfo7y"]
+
+[ext_resource type="Script" uid="uid://dj2k452hfhqia" path="res://scenes/explore/travel.gd" id="1_7b03w"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_7b03w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="travelWest" type="RichTextLabel" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "< west"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="travelNorth" type="RichTextLabel" parent="HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "^ north"
+fit_content = true
+autowrap_mode = 0
+
+[node name="travelContent" type="MarginContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="travelText" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer/travelContent"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="travelLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer2/VBoxContainer/travelContent/travelText"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "choose a direction"
+fit_content = true
+autowrap_mode = 0
+
+[node name="navBack" type="RichTextLabel" parent="HBoxContainer/MarginContainer2/VBoxContainer/travelContent/travelText"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "<back>"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="travelSouth" type="RichTextLabel" parent="HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "v south"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="travelEast" type="RichTextLabel" parent="HBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "east >"
+fit_content = true
+autowrap_mode = 0
